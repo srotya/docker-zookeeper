@@ -1,6 +1,5 @@
-FROM jboss/base-jdk:7
-
-MAINTAINER iocanel@gmail.com
+FROM java:8-jre
+MAINTAINER ambuds
 
 USER root
 
