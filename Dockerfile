@@ -6,7 +6,9 @@ USER root
 ENV ZOOKEEPER_VERSION 3.4.6
 EXPOSE 2181 2888 3888
 
-RUN yum -y install wget bind-utils && yum clean all \
+RUN apt-get update
+
+RUN apt-get -y install wget dnsutils \
     && wget -q -O - http://apache.mirrors.pair.com/zookeeper/zookeeper-${ZOOKEEPER_VERSION}/zookeeper-${ZOOKEEPER_VERSION}.tar.gz | tar -xzf - -C /opt \
     && mv /opt/zookeeper-${ZOOKEEPER_VERSION} /opt/zookeeper \
     && cp /opt/zookeeper/conf/zoo_sample.cfg /opt/zookeeper/conf/zoo.cfg \
